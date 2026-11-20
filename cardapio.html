@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cardápio Bar da Ladeira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Cardápio do Bar da Ladeira, na Ladeira, em Nossa Senhora dos Remédios (PI): tira-gostos, carnes, camarões, peixes, cervejas e bebidas, com preço.">
+<meta name="theme-color" content="#1F3550">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500&display=swap">
+<style>
+/* Conceito: a casa real — parede de cal, cadeira anil, guarda-corpo de madeira em X, telha de barro.
+   Uma coluna de leitura no celular (QR na mesa), duas no desktop. O X do guarda-corpo é a assinatura. */
+:root {
+  --cal: #F7F6F2;        /* parede caiada */
+  --cal-2: #ECE8E0;      /* sombra da cal */
+  --anil: #1F3550;       /* cadeiras e portas */
+  --anil-2: #2C4767;
+  --telha: #A04A2A;      /* telha colonial: só no preço */
+  --madeira: #A87C4C;    /* guarda-corpo em X */
+  --tinta: #1D1B19;
+  --cinza: #67635D;
+  --linha: #DDD7CC;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --sans: "Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --larg: 1120px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body { margin: 0; background: var(--cal); color: var(--tinta); font-family: var(--sans); font-size: 16px; line-height: 1.55;
+       -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--cal); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--telha); outline-offset: 3px; }
+.envolve { max-width: var(--larg); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* ---------- abertura: a foto do bar ---------- */
+.abertura { position: relative; height: clamp(360px, 78vw, 600px); overflow: hidden; background: var(--anil); color: var(--cal); }
+.abertura > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.abertura::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(31,53,80,0) 30%, rgba(31,53,80,.55) 62%, rgba(31,53,80,.94) 100%); }
+.abertura .envolve { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-block: 0 30px; }
+.abertura .logo { width: clamp(138px, 34vw, 240px); margin-bottom: 16px; }
+.abertura h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(50px, 12vw, 92px); line-height: .9; margin: 0; letter-spacing: -.01em; }
+.abertura p { margin: 12px 0 0; font-size: 15px; color: rgba(247,246,242,.86); max-width: 34em; }
+.abertura p a { color: var(--cal); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* guarda-corpo em X: a assinatura */
+.guarda { height: 26px; background-color: var(--cal);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='26' viewBox='0 0 34 26'%3E%3Cg fill='none' stroke='%23A87C4C' stroke-width='2.4' stroke-linecap='square'%3E%3Cpath d='M0 2.2h34M0 23.8h34M1 3.5l32 19M33 3.5l-32 19M1 2.2v21.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x; background-position: 0 0; }
+
+/* ---------- navegação das seções ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--cal); border-bottom: 1px solid var(--linha); }
+.nav .envolve { display: flex; align-items: center; gap: 8px; height: 56px; }
+.abas { flex: 1; min-width: 0; display: flex; gap: 26px; overflow-x: auto; scrollbar-width: none; height: 100%; align-items: stretch;
+        mask-image: linear-gradient(90deg, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); padding-right: 24px; }
+.abas::-webkit-scrollbar { display: none; }
+.abas a { flex: none; display: flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 500; color: var(--cinza);
+          border-bottom: 2px solid transparent; padding-top: 2px; white-space: nowrap; }
+.abas a[aria-current="true"] { color: var(--anil); border-bottom-color: var(--telha); }
+.btn-busca { flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--anil); display: grid; place-items: center; cursor: pointer; }
+.btn-busca:hover { background: var(--cal-2); }
+.busca { flex: 1; display: flex; align-items: center; gap: 10px; }
+.busca input { flex: 1; min-width: 0; height: 40px; border: 1px solid var(--linha); border-radius: 6px; background: #fff; padding: 0 14px;
+               font: 400 16px var(--sans); color: var(--tinta); }
+.busca input:focus { outline: 2px solid var(--anil); outline-offset: 0; border-color: transparent; }
+.busca button { border: 0; background: none; font: 500 15px var(--sans); color: var(--anil); cursor: pointer; padding: 8px 4px; }
+
+/* ---------- seções ---------- */
+main { padding-block: 8px 40px; }
+.secao { padding-top: 44px; }
+.secao > header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 4px;
+                  border-bottom: 1.5px solid var(--anil); }
+.secao > header .qtd { flex: none; font-size: 13.5px; color: var(--cinza); }
+.secao h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 8vw, 46px); line-height: 1; margin: 0; color: var(--anil); text-wrap: balance; }
+.secao h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 23px; color: var(--anil-2); margin: 30px 0 4px; }
+.lista { display: grid; grid-template-columns: 1fr; column-gap: 48px; }
+@media (min-width: 860px) { .lista { grid-template-columns: 1fr 1fr; } }
+
+.item { display: grid; grid-template-columns: minmax(0, 1fr) 112px; gap: 16px; align-items: start; width: 100%; text-align: left;
+        padding: 18px 0; border: 0; border-bottom: 1px solid var(--linha); background: none; color: inherit; font: inherit; cursor: pointer; }
+.item.sem-foto { grid-template-columns: minmax(0, 1fr); cursor: default; }
+.item .nome { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.12; color: var(--tinta); margin: 0; }
+.item .desc { margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--cinza); }
+.item .rodape { display: flex; align-items: baseline; gap: 12px; margin-top: 10px; }
+.item .peso { font-size: 13px; color: var(--cinza); letter-spacing: .02em; }
+.preco { font-family: var(--serif); font-weight: 700; font-size: 23px; color: var(--telha); font-variant-numeric: lining-nums; white-space: nowrap; }
+.item .foto { width: 112px; height: 112px; border-radius: 4px; overflow: hidden; background: var(--cal-2); }
+.item .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.item:hover .foto img { transform: scale(1.04); }
+.item .esgotado { font-size: 12.5px; color: var(--telha); border: 1px solid currentColor; border-radius: 3px; padding: 0 6px; }
+
+/* lista de preços (bebidas sem foto) */
+.precos { display: grid; grid-template-columns: 1fr; column-gap: 48px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 860px) { .precos { grid-template-columns: 1fr 1fr; } }
+.precos li { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--linha); min-width: 0; }
+.precos .n { font-size: 15.5px; color: var(--tinta); min-width: 0; }
+.precos .n small { color: var(--cinza); font-size: 13px; margin-left: 4px; }
+.precos i { flex: 1; border-bottom: 1.5px dotted #BDB4A5; transform: translateY(-4px); min-width: 16px; }
+.precos .preco { font-size: 20px; }
+
+.vazio { display: none; padding: 48px 0; font-family: var(--serif); font-size: 24px; color: var(--anil); }
+.vazio small { display: block; font-family: var(--sans); font-size: 15px; color: var(--cinza); margin-top: 6px; }
+
+/* ---------- rodapé ---------- */
+.fim { background: var(--anil); color: var(--cal); margin-top: 30px; }
+.fim .envolve { display: grid; gap: 22px; padding-block: 44px 40px; }
+.fim .logo { width: 210px; }
+.fim address { font-style: normal; font-size: 15px; color: rgba(247,246,242,.82); }
+.contatos { display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15px; }
+.contatos a { color: var(--cal); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.fim .aviso { font-size: 12.5px; letter-spacing: .04em; color: rgba(247,246,242,.6); border-top: 1px solid rgba(247,246,242,.16); padding-top: 18px; }
+
+/* ---------- detalhe do prato ---------- */
+dialog.prato { padding: 0; border: 0; width: min(560px, 100%); max-height: 92vh; margin: auto auto 0; border-radius: 14px 14px 0 0;
+               background: var(--cal); color: var(--tinta); overflow: auto; }
+@media (min-width: 700px) { dialog.prato { margin: auto; border-radius: 10px; } }
+dialog.prato::backdrop { background: rgba(20,28,40,.55); }
+dialog.prato[open] { animation: sobe .32s cubic-bezier(.2,.8,.2,1); }
+@keyframes sobe { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+.prato figure { margin: 0; position: relative; aspect-ratio: 3 / 2; background: var(--cal-2); }
+.prato figure img { width: 100%; height: 100%; object-fit: cover; }
+.prato .fechar { position: absolute; top: 12px; right: 12px; height: 38px; padding: 0 14px 0 10px; border: 0; border-radius: 19px;
+                 background: rgba(247,246,242,.92); color: var(--anil); font: 500 14px var(--sans); display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.prato .corpo { padding: 22px 22px calc(26px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px; }
+.prato h2 { font-family: var(--serif); font-weight: 600; font-size: 34px; line-height: 1.05; margin: 0; color: var(--anil); }
+.prato .desc { margin: 0; color: var(--cinza); font-size: 16px; }
+.prato .rodape { display: flex; align-items: baseline; gap: 14px; margin-top: 8px; }
+.prato .preco { font-size: 30px; }
+.prato .peso { color: var(--cinza); font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  dialog.prato[open] { animation: none; }
+  .item .foto img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<section class="abertura">
+  <img src="img/bar.jpg" alt="O Bar da Ladeira visto da escada: quiosque de paredes brancas, telhado de telha colonial, guarda-corpo de madeira em X e palmeiras" fetchpriority="high">
+  <div class="envolve">
+    <img class="logo" src="img/logo-creme.png" alt="Bar da Ladeira, cozinha regional">
+    <h1>Cardápio</h1>
+    <p>Na Ladeira, Nossa Senhora dos Remédios (PI). <a href="https://maps.app.goo.gl/nrAjoiCy1CsXW3xCA" target="_blank" rel="noopener">Como chegar</a></p>
+  </div>
+</section>
+<div class="guarda" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Seções do cardápio">
+  <div class="envolve">
+    <div class="abas" id="abas"></div>
+    <div class="busca" id="busca" hidden>
+      <label for="q" class="sr" style="position:absolute;left:-9999px">Buscar no cardápio</label>
+      <input id="q" type="search" placeholder="Buscar prato ou bebida" autocomplete="off">
+      <button type="button" id="cancelar">Cancelar</button>
+    </div>
+    <button class="btn-busca" id="abrirBusca" type="button" aria-label="Buscar no cardápio">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="envolve" id="cardapio"></main>
+<p class="envolve vazio" id="vazio">Nada encontrado.<small>Tente outro nome, como picanha, camarão ou Heineken.</small></p>
+
+<footer class="fim">
+  <div class="envolve">
+    <img class="logo" src="img/logo-creme.png" alt="Bar da Ladeira">
+    <address>Na Ladeira, Nossa Senhora dos Remédios (PI)<br>Uma casa da Organização Edienai</address>
+    <div class="contatos">
+      <a href="https://wa.me/5586981173007" target="_blank" rel="noopener">WhatsApp (86) 98117-3007</a>
+      <a href="https://www.instagram.com/bardaladeira_nsr/" target="_blank" rel="noopener">@bardaladeira_nsr</a>
+      <a href="https://maps.app.goo.gl/nrAjoiCy1CsXW3xCA" target="_blank" rel="noopener">Como chegar</a>
+      <a href="./">Todos os links</a>
+    </div>
+    <p class="aviso">Beba com moderação. Proibido para menores de 18 anos. Fotos ilustrativas.</p>
+  </div>
+</footer>
+
+<dialog class="prato" id="prato" aria-labelledby="pratoNome">
+  <figure><img id="pratoFoto" alt=""><button class="fechar" id="fechar" type="button" aria-label="Fechar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>Fechar</button></figure>
+  <div class="corpo">
+    <h2 id="pratoNome"></h2>
+    <p class="desc" id="pratoDesc"></p>
+    <div class="rodape"><span class="preco" id="pratoPreco"></span><span class="peso" id="pratoPeso"></span></div>
+  </div>
+</dialog>
+
+<script>
+/* Cardápio conferido no site do bar em 20/11/2026. Só comidas e bebidas do bar. */
+const CARDAPIO = [
+  { id: "tira-gostos", nome: "Tira-gostos", grupos: [{ itens: [
+    { nome: "Espetinho simples", desc: "Frango e porco na brasa. Acompanha farofa.", preco: 12, foto: "espetinho" },
+    { nome: "Batata frita", peso: "200 g", desc: "Porção de batata frita com sal.", preco: 10, foto: "batata-frita" },
+    { nome: "Abacaxi temperado", desc: "Abacaxi em pedaços, temperado.", preco: 10, foto: "abacaxi-temperado" },
+    { nome: "Mini pastéis", peso: "6 unidades", desc: "Porção com seis mini pastéis.", preco: 8, foto: "mini-pasteis" },
+    { nome: "Creme de galinha", desc: "Caldo cremoso de galinha desfiada.", preco: 5, foto: "creme-de-galinha" }
+  ]}]},
+  { id: "carnes", nome: "Carnes", grupos: [{ itens: [
+    { nome: "Carne de sol trinchada", peso: "300 g", desc: "Carne de sol em cubos. Acompanha farofa, vinagrete e macaxeira.", preco: 35, foto: "carne-de-sol" },
+    { nome: "Carne mista", peso: "400 g", desc: "Carne e linguiça toscana. Acompanha farofa e batata frita.", preco: 45, foto: "carne-mista" },
+    { nome: "Picanha nacional", peso: "400 g", desc: "Acompanha arroz, farofa, vinagrete e macaxeira frita.", preco: 80, foto: "picanha-nacional" },
+    { nome: "Picanha argentina", peso: "400 g", desc: "Acompanha arroz, vinagrete e macaxeira frita.", preco: 90, foto: "picanha-argentina" }
+  ]}]},
+  { id: "camaroes-e-peixes", nome: "Camarões e peixes", grupos: [{ itens: [
+    { nome: "Camarão médio", peso: "200 g", desc: "Ao alho e óleo. Acompanha farofa e vinagrete.", preco: 25, foto: "camarao-medio" },
+    { nome: "Camarão grande", peso: "400 g", desc: "Ao alho e óleo. Acompanha farofa e vinagrete.", preco: 30, foto: "camarao-grande" },
+    { nome: "Peixe", peso: "tilápia ou tambaqui", desc: "Acompanha arroz, farofa, vinagrete e batata frita.", preco: 50, foto: "peixe" }
+  ]}]},
+  { id: "pratos", nome: "Pratos", grupos: [{ itens: [
+    { nome: "Panelada", desc: "Bucho e miúdos no caldo grosso. Acompanha farofa e limão.", preco: 20, foto: "panelada" },
+    { nome: "Arrumadinho", desc: "Acompanha salada, farofa e arroz.", preco: 22, foto: "arrumadinho" }
+  ]}]},
+  { id: "cervejas", nome: "Cervejas", grupos: [
+    { nome: "Garrafa", itens: [
+      { nome: "Brahma", peso: "600 ml", preco: 8.5, foto: "brahma" },
+      { nome: "Skol", preco: 9, foto: "skol" },
+      { nome: "Antarctica", peso: "600 ml", preco: 10, foto: "antarctica" },
+      { nome: "Heineken", peso: "600 ml", preco: 12.99, foto: "heineken" },
+      { nome: "Stella Artois", peso: "600 ml", preco: 13, foto: "stella-artois" }
+    ]},
+    { nome: "Mais cervejas", lista: [
+      { nome: "Budweiser", sub: "600 ml", preco: 10 },
+      { nome: "Stella Gold", sub: "600 ml", preco: 14 },
+      { nome: "Heineken long neck", sub: "350 ml", preco: 8 },
+      { nome: "Skol lata", sub: "350 ml", preco: 5 },
+      { nome: "Skol Piriguete", sub: "269 ml", preco: 4 }
+    ]}
+  ]},
+  { id: "doses", nome: "Doses e drinks", grupos: [
+    { itens: [ { nome: "Dose de Ypióca", desc: "Cachaça na dose.", preco: 2, foto: "dose-cachaca" } ] },
+    { lista: [
+      { nome: "51 Ice limão", preco: 10 },
+      { nome: "Absolut Vodka", preco: 10 }
+    ]}
+  ]},
+  { id: "sem-alcool", nome: "Sem álcool", grupos: [
+    { itens: [
+      { nome: "Cajuína", desc: "Cajuína gelada.", preco: 10, foto: "cajuina" },
+      { nome: "Água de coco", desc: "Gelada.", preco: 6, foto: "agua-de-coco" }
+    ]},
+    { nome: "Águas", lista: [
+      { nome: "Água mineral", sub: "500 ml", preco: 3 },
+      { nome: "Água com gás", sub: "500 ml", preco: 5 },
+      { nome: "Água mineral", sub: "1,5 L", preco: 6 }
+    ]},
+    { nome: "Refrigerantes", lista: [
+      { nome: "Coca-Cola", sub: "250 ml", preco: 3 },
+      { nome: "Guaraná Antarctica", sub: "200 ml", preco: 3 },
+      { nome: "Guaraná Antarctica lata", sub: "350 ml", preco: 4 },
+      { nome: "Coca-Cola lata", sub: "350 ml", preco: 5 },
+      { nome: "Coca-Cola Zero lata", sub: "350 ml", preco: 5 },
+      { nome: "Fanta Laranja lata", sub: "350 ml", preco: 5 },
+      { nome: "Fanta Uva lata", sub: "350 ml", preco: 5 },
+      { nome: "Kuat lata", sub: "350 ml", preco: 5 },
+      { nome: "H2OH! Limão", sub: "500 ml", preco: 5 },
+      { nome: "Guaraná Antarctica", sub: "600 ml", preco: 6 },
+      { nome: "Guaraná", sub: "1 L", preco: 7 },
+      { nome: "Pepsi", sub: "1 L", preco: 7 },
+      { nome: "Coca-Cola retornável", sub: "1 L", preco: 8 },
+      { nome: "Coca-Cola", sub: "1 L", preco: 9 },
+      { nome: "Coca-Cola", sub: "1,5 L", preco: 12 },
+      { nome: "Coca-Cola Zero", sub: "1,5 L", preco: 12 },
+      { nome: "Pepsi", sub: "2 L", preco: 12 },
+      { nome: "Coca-Cola", sub: "2 L", preco: 14 }
+    ]},
+    { nome: "Energéticos", lista: [
+      { nome: "Baly", sub: "450 ml", preco: 14 },
+      { nome: "Monster", sub: "450 ml", preco: 14 },
+      { nome: "Red Bull", preco: 15 }
+    ]}
+  ]}
+];
+
+const reais = v => "R$ " + (Number.isInteger(v) ? String(v) : v.toFixed(2).replace(".", ","));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = s => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+const main = document.getElementById("cardapio");
+const abas = document.getElementById("abas");
+const pratos = [];
+
+function itemHTML(it) {
+  const i = pratos.push(it) - 1;
+  const foto = it.foto ? `<span class="foto"><img src="img/fotos/${it.foto}-q.jpg" alt="" loading="lazy" width="112" height="112"></span>` : "";
+  return `<button class="item${it.foto ? "" : " sem-foto"}" type="button" data-i="${i}" data-busca="${esc(norm(it.nome + " " + (it.desc || "") + " " + (it.peso || "")))}">
+    <span><span class="nome">${esc(it.nome)}</span>${it.desc ? `<span class="desc" style="display:block">${esc(it.desc)}</span>` : ""}
+    <span class="rodape"><span class="preco">${reais(it.preco)}</span>${it.peso ? `<span class="peso">${esc(it.peso)}</span>` : ""}</span></span>${foto}</button>`;
+}
+function listaHTML(l) {
+  return `<ul class="precos">${l.map(x => `<li data-busca="${esc(norm(x.nome + " " + (x.sub || "")))}"><span class="n">${esc(x.nome)}${x.sub ? `<small>${esc(x.sub)}</small>` : ""}</span><i aria-hidden="true"></i><span class="preco">${reais(x.preco)}</span></li>`).join("")}</ul>`;
+}
+
+for (const s of CARDAPIO) {
+  abas.insertAdjacentHTML("beforeend", `<a href="#${s.id}" data-s="${s.id}">${esc(s.nome)}</a>`);
+  const qtd = s.grupos.reduce((n, g) => n + (g.itens ? g.itens.length : 0) + (g.lista ? g.lista.length : 0), 0);
+  let h = `<section class="secao" id="${s.id}" aria-labelledby="t-${s.id}"><header><h2 id="t-${s.id}">${esc(s.nome)}</h2><span class="qtd">${qtd} ${qtd === 1 ? "opção" : "opções"}</span></header>`;
+  for (const g of s.grupos) {
+    h += `<div class="grupo">${g.nome ? `<h3>${esc(g.nome)}</h3>` : ""}`;
+    if (g.itens) h += `<div class="lista">${g.itens.map(itemHTML).join("")}</div>`;
+    if (g.lista) h += listaHTML(g.lista);
+    h += `</div>`;
+  }
+  main.insertAdjacentHTML("beforeend", h + `</section>`);
+}
+
+/* detalhe */
+const dlg = document.getElementById("prato");
+main.addEventListener("click", e => {
+  const b = e.target.closest(".item");
+  if (!b || !b.querySelector(".foto")) return;
+  const it = pratos[+b.dataset.i];
+  const img = document.getElementById("pratoFoto");
+  img.src = `img/fotos/${it.foto}.jpg`; img.alt = it.nome;
+  document.getElementById("pratoNome").textContent = it.nome;
+  const d = document.getElementById("pratoDesc"); d.textContent = it.desc || ""; d.hidden = !it.desc;
+  document.getElementById("pratoPreco").textContent = reais(it.preco);
+  document.getElementById("pratoPeso").textContent = it.peso || "";
+  dlg.showModal();
+});
+document.getElementById("fechar").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* aba ativa conforme a rolagem */
+const links = [...abas.querySelectorAll("a")];
+function marca(id) {
+  links.forEach(a => a.setAttribute("aria-current", a.dataset.s === id ? "true" : "false"));
+  const at = links.find(a => a.dataset.s === id);
+  if (at) abas.scrollTo({ left: at.offsetLeft - 16, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+}
+const io = new IntersectionObserver(ents => {
+  const vis = ents.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+  if (vis) marca(vis.target.id);
+}, { rootMargin: "-80px 0px -65% 0px" });
+document.querySelectorAll(".secao").forEach(s => io.observe(s));
+marca(CARDAPIO[0].id);
+
+/* busca */
+const busca = document.getElementById("busca"), q = document.getElementById("q"), abrir = document.getElementById("abrirBusca");
+const vazio = document.getElementById("vazio");
+function filtra() {
+  const t = norm(q.value.trim());
+  let total = 0;
+  document.querySelectorAll(".secao").forEach(sec => {
+    let n = 0;
+    sec.querySelectorAll("[data-busca]").forEach(el => { const ok = !t || el.dataset.busca.includes(t); el.hidden = !ok; if (ok) n++; });
+    sec.querySelectorAll(".grupo").forEach(g => { g.hidden = !g.querySelector("[data-busca]:not([hidden])"); });
+    sec.hidden = n === 0; total += n;
+  });
+  vazio.style.display = total ? "none" : "block";
+}
+abrir.addEventListener("click", () => { abas.hidden = true; abrir.hidden = true; busca.hidden = false; q.focus(); });
+document.getElementById("cancelar").addEventListener("click", () => { q.value = ""; filtra(); busca.hidden = true; abas.hidden = false; abrir.hidden = false; });
+q.addEventListener("input", filtra);
+</script>
+</body>
+</html>

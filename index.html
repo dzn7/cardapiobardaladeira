@@ -1,0 +1,112 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bar da Ladeira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Bar da Ladeira, na Ladeira, em Nossa Senhora dos Remédios (PI): cardápio, WhatsApp, Instagram e como chegar.">
+<meta name="theme-color" content="#1F3550">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap">
+<style>
+/* Conceito: a escada do bar. A foto real em cima, e os links como placas caiadas na parede anil. */
+:root {
+  --cal: #F7F6F2;
+  --cal-2: #ECE8E0;
+  --anil: #1F3550;
+  --anil-fundo: #182B42;
+  --telha: #A04A2A;
+  --madeira: #A87C4C;
+  --tinta: #1D1B19;
+  --cinza: #67635D;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --sans: "Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { min-height: 100%; background: var(--anil-fundo); }
+body { margin: 0; min-height: 100%; background: var(--anil-fundo); color: var(--cal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--cal); outline-offset: 3px; }
+
+.casa { position: relative; height: clamp(300px, 64vw, 440px); overflow: hidden; }
+.casa > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.casa::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(24,43,66,0) 35%, rgba(24,43,66,.6) 72%, var(--anil-fundo) 100%); }
+
+.conteudo { position: relative; z-index: 1; max-width: 480px; margin: -150px auto 0;
+  padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); padding-block: 0 36px;
+  display: grid; justify-items: center; text-align: center; }
+.conteudo .logo { width: min(270px, 74vw); filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
+.conteudo .onde { margin: 14px 0 0; font-size: 14.5px; color: rgba(247,246,242,.8); }
+
+.guarda { width: 100%; height: 20px; margin: 26px 0 22px; opacity: .85;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='20' viewBox='0 0 26 20'%3E%3Cg fill='none' stroke='%23A87C4C' stroke-width='2' stroke-linecap='square'%3E%3Cpath d='M0 1.6h26M0 18.4h26M1 2.6l24 14.8M25 2.6 1 17.4M1 1.6v16.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x; background-position: center 0; }
+
+.links { width: 100%; display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.links a { position: relative; display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 14px; min-height: 74px;
+  padding: 12px 18px; text-align: left; text-decoration: none; color: var(--anil); background: var(--cal); border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 10px 24px -14px rgba(0,0,0,.6); transition: transform .18s ease, background-color .18s ease; }
+.links a::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(31,53,80,.16); border-radius: 2px; pointer-events: none; }
+.links a:hover { background: #FFFFFF; transform: translateY(-1px); }
+.links a:active { transform: translateY(1px); }
+.links .ic { width: 44px; height: 44px; display: grid; place-items: center; color: var(--madeira); }
+.links strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 25px; line-height: 1.05; color: var(--anil); }
+.links span.sub { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.35; color: var(--cinza); }
+.links li.destaque a { background: var(--telha); color: var(--cal); min-height: 86px; }
+.links li.destaque a::after { border-color: rgba(247,246,242,.28); }
+.links li.destaque strong { color: var(--cal); font-size: 30px; }
+.links li.destaque span.sub { color: rgba(247,246,242,.85); }
+.links li.destaque .ic { color: var(--cal); }
+.links li.destaque a:hover { background: #AE5432; }
+
+.rodape { margin-top: 30px; display: grid; gap: 6px; font-size: 12.5px; color: rgba(247,246,242,.58); letter-spacing: .03em; }
+.rodape b { font-weight: 500; color: rgba(247,246,242,.78); letter-spacing: 0; font-size: 13.5px; }
+
+@media (prefers-reduced-motion: reduce) { .links a { transition: none; } .links a:hover, .links a:active { transform: none; } }
+</style>
+
+<header class="casa">
+  <img src="img/bar.jpg" alt="O Bar da Ladeira: quiosque de paredes brancas, telha colonial, guarda-corpo de madeira em X e palmeiras" fetchpriority="high">
+</header>
+
+<main class="conteudo">
+  <img class="logo" src="img/logo-creme.png" alt="Bar da Ladeira, cozinha regional">
+  <p class="onde">Na Ladeira, Nossa Senhora dos Remédios (PI)</p>
+  <div class="guarda" aria-hidden="true"></div>
+
+  <ul class="links">
+    <li class="destaque"><a href="cardapio.html">
+      <span class="ic"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 8c-3-2.2-7-2.6-11-2v19c4-.6 8-.2 11 2 3-2.2 7-2.6 11-2V6c-4-.6-8-.2-11 2Z"/><path d="M16 8v19"/></svg></span>
+      <span><strong>Cardápio</strong><span class="sub">Tira-gostos, carnes, camarões e bebidas, com preço</span></span></a></li>
+
+    <li><a href="cardapio.html#cervejas">
+      <span class="ic"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13.5 3h5v6.5c0 1.6 3.5 3.2 3.5 6.5v12.5c0 .8-.7 1.5-1.5 1.5h-9c-.8 0-1.5-.7-1.5-1.5V16c0-3.3 3.5-4.9 3.5-6.5Z"/><path d="M10 18.5h12M10 24.5h12"/></svg></span>
+      <span><strong>Cervejas e bebidas</strong><span class="sub">Garrafa, long neck, doses e sem álcool</span></span></a></li>
+
+    <li><a href="https://wa.me/5586981173007?text=Oi!%20Quero%20saber%20como%20fa%C3%A7o%20minha%20festa%20no%20Bar%20da%20Ladeira." target="_blank" rel="noopener">
+      <span class="ic"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6l-1 9a2.5 2.5 0 0 1-4 0L9 4ZM12 15v12M9 27h6"/><path d="M18 4h6l-1 9a2.5 2.5 0 0 1-4 0l-1-9ZM21 15v12M18 27h6"/></svg></span>
+      <span><strong>Festas e aniversários</strong><span class="sub">A gente organiza o espaço pra tua festa</span></span></a></li>
+
+    <li><a href="https://wa.me/5586981173007" target="_blank" rel="noopener">
+      <span class="ic"><svg width="27" height="27" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4a12 12 0 0 0-10.4 18L4 28l6.2-1.6A12 12 0 1 0 16 4Z"/><path d="M12 10.5c-.5 0-1.3.5-1.3 1.8 0 2.7 3.6 7.7 8.8 8.9 1.3.3 2.4-.6 2.4-1.5l-.2-1.1-2.6-1.2-1.3 1.3c-1.6-.6-3.2-2.2-3.8-3.8l1.3-1.3-1.2-2.6-1.1-.2Z"/></svg></span>
+      <span><strong>WhatsApp</strong><span class="sub">(86) 98117-3007</span></span></a></li>
+
+    <li><a href="https://www.instagram.com/bardaladeira_nsr/" target="_blank" rel="noopener">
+      <span class="ic"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="22" rx="6.5"/><circle cx="16" cy="16" r="5.2"/><circle cx="22.6" cy="9.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+      <span><strong>Instagram</strong><span class="sub">@bardaladeira_nsr</span></span></a></li>
+
+    <li><a href="https://maps.app.goo.gl/nrAjoiCy1CsXW3xCA" target="_blank" rel="noopener">
+      <span class="ic"><svg width="27" height="27" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 29s9-8.4 9-15.5a9 9 0 0 0-18 0C7 20.6 16 29 16 29Z"/><circle cx="16" cy="13.5" r="3.2"/></svg></span>
+      <span><strong>Como chegar</strong><span class="sub">Abrir no Google Maps</span></span></a></li>
+  </ul>
+
+  <footer class="rodape">
+    <b>Uma casa da Organização Edienai</b>
+    <span>Beba com moderação. Proibido para menores de 18 anos.</span>
+  </footer>
+</main>
+
+
+
+</body></html>
